@@ -1,7 +1,7 @@
-# Front-End-Course
-Repository of a front end basics course
+# Treinamento Ventron
+Conteúdo ministrado no treinamento da ventron
 
-## Content
+## Conteúdo
 * JavaScript
 * AngularJS
 * Gulp
