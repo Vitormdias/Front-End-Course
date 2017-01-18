@@ -20,9 +20,11 @@
     * primeira classe
         * atribuir uma função para uma variavel
 
-    * Declaration
         * antes do código ser carregado
-    ```
+
+    * Expression
+    * carregada durante a interpretação do código
+    ```js
         var a = function() {
             return 'f';
         }
@@ -30,10 +32,10 @@
         a();
     ```
 
-    * Expression
-        * carregada durante a interpretação do código
 
-    ```
+    * Declaration
+
+    ```js
         function a () {
             return 'f';
         }
@@ -41,34 +43,47 @@
         a();
     ```
 
+    * Named Function Expression
+    ```js
+        var nome = function nome() {
+            return "hello world";
+        }
+    ```
+
     * Maneiras de chamar uma função
         * Escolpo global
         * Função por meio de um objeto
             * Fabrica
-                ```
-                    function pessoa (nome, idade) {
-                        nome = nome;
-                        idade = idade;
+                * retorna um objeto
+                ```js
+                    var pessoa = function (nome, idade) {
+                        return {
+                            nome = nome;
+                            idade = idade;
+                        }
                     }
-                    joao = pessoa("joao",18)
+
+                    joao = pessoa("joao",18);
                 ```
             * Construtora
-                    ```
+                * novo objeto, passa o this
+                    ```js
                         function pessoa (nome, idade) {
                             this.nome = nome;
                             this.nome = idade;
                         }
-                        joao = new pessoa("joao",18)
+
+                        joao = new pessoa("joao",18);
                     ```
         * Por meio de Call e Apply
-        ```
+        ```js
             var pessoa = function() {
                 console.log(arguments)
                 return 'joao';
             }
 
-            pessoa.call('' , 1,2,3,4,5);
-            pessoa.apply('' , [1,2,3,4,5])
+            pessoa.call(this , 1,2,3,4,5);
+            pessoa.apply(this , [1,2,3,4,5])
         ```
 
 * Array API
